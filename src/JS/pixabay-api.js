@@ -16,13 +16,9 @@ export const fetchPhotosByQuery = async searchedQuery => {
 
     const data = await response.json();
 
-    if (!data.hits || data.hits.length === 0) {
-      throw new Error('No images found for your search query.');
-    }
-
     return data;
   } catch (error) {
-    console.error('Error fetching data:', error);
+    console.error('Error fetching data:', error.message);
     throw error;
   }
 };
